@@ -1,5 +1,5 @@
 {
-  "version": "1.9.3",
+  "version": "1.9.2",
   "type": "session",
   "createdWith": "Open Stage Control",
   "content": {
@@ -413,8 +413,8 @@
         "script": "",
         "visible": true,
         "interaction": true,
-        "left": 10,
-        "top": 560,
+        "left": 890,
+        "top": 90,
         "width": 440,
         "height": 470,
         "expand": "false",
@@ -435,8 +435,8 @@
         "script": "",
         "visible": true,
         "interaction": true,
-        "left": 450,
-        "top": 560,
+        "left": 1330,
+        "top": 90,
         "width": 440,
         "height": 470,
         "expand": "false",
@@ -501,6 +501,182 @@
         "ignoreDefaults": false,
         "bypass": false,
         "script": ""
+      },
+      {
+        "type": "clone",
+        "id": "clone_4",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 10,
+        "top": 560,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 5
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_5",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 450,
+        "top": 560,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 6
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_6",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 890,
+        "top": 560,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 7
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_7",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 1330,
+        "top": 560,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 8
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_8",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 10,
+        "top": 1030,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 9
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_9",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 450,
+        "top": 1030,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 10
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_10",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 890,
+        "top": 1030,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 11
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
+      },
+      {
+        "type": "clone",
+        "id": "clone_11",
+        "comments": "",
+        "script": "",
+        "visible": true,
+        "interaction": true,
+        "left": 1330,
+        "top": 1030,
+        "width": 440,
+        "height": 470,
+        "expand": "false",
+        "css": "",
+        "widgetId": "panel_1",
+        "props": {
+          "variables": {
+            "track": 12
+          }
+        },
+        "address": "auto",
+        "variables": "@{parent.variables}"
       }
     ],
     "tabs": [],
