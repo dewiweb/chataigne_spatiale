@@ -1,5 +1,3 @@
-
-
 # chataigne_spatiale
  WIP exploration of:\
 \
@@ -9,6 +7,7 @@ chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette\
 
 Open-Stage-Control(https://openstagecontrol.ammd.net/) --> *.json\
 <img src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
+<img src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="50%">
 
 
 Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) --> *.blend\
