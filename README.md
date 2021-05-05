@@ -16,4 +16,6 @@ Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addr
 \
 \
 to control 3D positions/trajectories of objects (object-oriented audio) in live conditions\
-with Holophonix audio processor (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).
+with Holophonix audio processor (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).\
+![Holophonix_designer-1 7_beta](https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif)
+
