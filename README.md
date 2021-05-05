@@ -1,4 +1,5 @@
 
+
 # chataigne_spatiale
  WIP exploration of:\
 \
@@ -7,7 +8,7 @@ chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette\
 
 
 Open-Stage-Control(https://openstagecontrol.ammd.net/) --> *.json\
-<img src="https://user-images.githubusercontent.com/3625655/117028384-f7db9b80-acfd-11eb-9fcb-54e41cc5e155.png" width="50%">
+<img src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
 
 
 Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) --> *.blend\
@@ -15,4 +16,6 @@ Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addr
 \
 \
 to control 3D positions/trajectories of objects (object-oriented audio) in live conditions\
-with Holophonix audio processor (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).
+with Holophonix audio processor (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).\
+![Holophonix_designer-1 7_beta](https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif)
+
