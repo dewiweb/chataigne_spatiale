@@ -225,7 +225,7 @@
                 "colorText": "auto",
                 "colorWidget": "auto",
                 "colorStroke": "auto",
-                "colorFill": "auto",
+                "colorFill": "rgba(255,255,255,1)",
                 "alphaStroke": "auto",
                 "alphaFillOff": "auto",
                 "alphaFillOn": "auto",
@@ -234,17 +234,22 @@
                 "html": "",
                 "css": "",
                 "design": "compact",
-                "knobSize": "auto",
+                "knobSize": 5,
                 "horizontal": false,
-                "pips": false,
-                "dashed": false,
-                "gradient": [],
+                "pips": true,
+                "dashed": [
+                  1,
+                  22
+                ],
+                "gradient": [
+                  "white"
+                ],
                 "snap": false,
                 "spring": false,
                 "doubleTap": true,
                 "range": {
-                  "min": -20,
-                  "max": 20
+                  "min": -5,
+                  "max": 10
                 },
                 "logScale": false,
                 "sensitivity": 1,
