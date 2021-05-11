@@ -135,8 +135,8 @@ if obj.type == 'CURVE':
                     with open(file_name, "w") as write_file:
                         json.dump(data, write_file)
                 else:
-                    print("cas i= logueur-1")
-                    data =[{"parameters":[{
+                    print("cas i= longueur-1")
+                    data ={"parameters":[{
                                           "value": [
                                                         cox_list[i],
                                                         coy_list[i]
@@ -170,11 +170,12 @@ if obj.type == 'CURVE':
                                                 }
                                             },
                                             "type": "2DKey"
-                                        },
-                                        {"parameters": [{
-                                                        "value": [
-                                                                        cox_list[0],
-                                                                        coy_list[0]
+                                        }
+                                        
+                    data1 ={"parameters": [{
+                                            "value": [
+                                                        cox_list[0],
+                                                        coy_list[0]
                                                         ],
                                                         "controlAddress": "/viewUIPosition"
                                                 },
@@ -189,12 +190,15 @@ if obj.type == 'CURVE':
                                                 }
                                             },
                                             "type": "2DKey"
-                                            },
-                                            ]
+                                            }
+                                            
                                         
                     with open(file_name, "a") as file_object:
                         file_object.write(",")
                         file_object.write(json.dumps(data))
+                        file_object.write(",")
+                        file_object.write(json.dumps(data1))
+                        
                                 
                             
                   
