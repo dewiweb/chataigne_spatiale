@@ -2,7 +2,7 @@
  WIP exploration of:\
 \
 chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette\
-<img src="https://user-images.githubusercontent.com/3625655/117028274-d8dd0980-acfd-11eb-8e5e-bdcc12b06e08.png" width="50%">
+<img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
 
 
 Open-Stage-Control(https://openstagecontrol.ammd.net/) --> *.json\
