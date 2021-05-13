@@ -1,17 +1,16 @@
 # chataigne_spatiale
  WIP exploration of:\
 \
-chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette\
+Chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette files\
+Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) --> *.blend files and blender_scripts folder\
+(Launch blender in commandline to use "bezier-blender2chataigne.py" script to choose save path and output filename of your *.lilput file.)
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
-
-
-Open-Stage-Control(https://openstagecontrol.ammd.net/) --> *.json\
+![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)
+\
+\
+Open-Stage-Control(https://openstagecontrol.ammd.net/) --> *.json files\
 <img src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
 <img src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="50%">
-
-
-Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) --> *.blend\
-![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)
 \
 \
 to control 3D positions/trajectories of objects (object-oriented audio) in live conditions\
