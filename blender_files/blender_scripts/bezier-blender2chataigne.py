@@ -21,7 +21,7 @@ basic_data1 =']}},"type": "Mapping 2D"}]}, "cues": {"hideInEditor": true}, "edit
 
 # and comment the next block
 
-save_path = input("Where do you want to write the file?(choose a valid path, default= /home/user): ")
+save_path = input("Where do you want to write the file?(choose a valid path, default= " + os.path.expanduser("~") + ": ")
 if save_path == None:
     save_path = os.path.expanduser("~")
 elif save_path:
