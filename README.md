@@ -1,11 +1,10 @@
  # --- My W.I.P exploration of: ---
 ## Chataigne<-->Blender
 (http://benjamin.kuperberg.fr/chataigne) \
---> *.noisette files\
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
---> *.blend files and blender_scripts subfolder\
 Launch blender in commandline/terminal to use ["bezier-blender2chataigne.py"](../master/blender_files/blender_scripts) script \
-to choose save path and output filename of your *.lilput file.\
+to export 2D bezier curves from Blender and choose save path and output filename of your *.lilput file\
+usable next in Chataigne (file>import)!
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
 ![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)\
 ## Open-Stage-Control
