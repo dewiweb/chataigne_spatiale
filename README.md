@@ -1,9 +1,12 @@
 # chataigne_spatiale
  WIP exploration of:\
 \
-Chataigne (http://benjamin.kuperberg.fr/chataigne) --> *.noisette files\
-Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) --> *.blend files and blender_scripts folder\
-(Launch blender in commandline to use "bezier-blender2chataigne.py" script to choose save path and output filename of your *.lilput file.)
+Chataigne (http://benjamin.kuperberg.fr/chataigne) \
+--> *.noisette files\
+Blender(https://www.blender.org/) with AddRoutes(http://www.jpfep.net/pages/addroutes/) \
+--> *.blend files and blender_scripts subfolder\
+(Launch blender in commandline to use "bezier-blender2chataigne.py" script \
+to choose save path and output filename of your *.lilput file.)\
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
 ![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)
 \
