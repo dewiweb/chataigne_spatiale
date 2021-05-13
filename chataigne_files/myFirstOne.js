@@ -56,6 +56,7 @@ function scriptParameterChanged(param)
 	var seqList = root.sequences.getItems();
 	var lastItemIndex =  seqList.length;
 	var lastItem = root.sequences.getItemAt(lastItemIndex-1);
+	if (lastItem== undefined) lastItem = root.sequences.addItem();
 	lastItemName = lastItem.name; 
 	script.log("lastItemName : "+lastItemName);
 	lastItem.layers.addItem();
