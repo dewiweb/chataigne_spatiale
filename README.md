@@ -3,9 +3,10 @@
 ## Chataigne <--> Blender
 (http://benjamin.kuperberg.fr/chataigne) \
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
+ Note:\
   Launch blender in commandline/terminal to use ["bezier-blender2chataigne.py"](../master/blender_files/blender_scripts) script \
-  to export 2D bezier curves from Blender and choose save path and output filename\
-  of your *.lilput file, usable next in Chataigne (file > import)!\
+  to export 2D/3D bezier curves(3D curves are converted in 2D) from Blender and choose save path and output filename\
+  of your *.lilput file, usable next in Chataigne (file > import) as a 2D Mapping in a new sequence!\
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
 ![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)
 ## Open-Stage-Control
