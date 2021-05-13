@@ -12,7 +12,8 @@ of your *.lilput file, usable next in Chataigne (file > import)!\
 (https://openstagecontrol.ammd.net/) --> *.json files\
 <img src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
 <img src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="50%">\
-#For Holophonix audio processor
+
+##For Holophonix audio processor
 (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).\
 ![Holophonix_designer-1 7_beta](https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif)
 
