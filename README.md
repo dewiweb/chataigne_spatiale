@@ -3,12 +3,12 @@
 ## Blender <--> Chataigne (ex.: design 2D/3D curves in Blender to use them in Chataigne)
 (http://benjamin.kuperberg.fr/chataigne) \
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
- ### Note:\
+  Note:
     Launch blender in commandline/terminal to use [blender2chataigne.py](../master/blender_files/blender_scripts) script \
     to export 2D/3D BEZIER and POLY selected curves(for now, 3D curves are converted in 2D) from Blender and choose\
     save path and output filename of your *.lilnut file, usable next in Chataigne\
     (file > import) as a 2D Mapping in a new sequence!\
-### ToDo:\
+ ToDo:
     Add support for 3D export (Mapping2D for XY + Mapping for Z).
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
