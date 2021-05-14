@@ -10,15 +10,15 @@
     (file > import) as a 2D Mapping in a new sequence!\
 ToDo:\
     Add support for 3D export (Mapping2D for XY + Mapping for Z)
-<div style=" float:left; display:inline">
-<img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
-<img src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="50%">
+<div>
+<img style=" float:left; display:inline" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
+<img style=" float:left; display:inline" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="50%">
 </div>
 ## Open-Stage-Control (to design touch-friendly control UI)
 (https://openstagecontrol.ammd.net/) --> *.json files\
-<div style=" float:left; display:inline">
-<img src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
-<img src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="50%">
+<div>
+<img style=" float:left; display:inline" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="50%">
+<img style=" float:left; display:inline" src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="50%">
 </div>
 ## For HOLOPHONIX audio processor( by [AMADEUSLAB](http://amadeusaudio.fr) with IRCAM inside)
 (http://holophonix.xyz/) and its designer (http://holophonix.xyz/designer/).\
