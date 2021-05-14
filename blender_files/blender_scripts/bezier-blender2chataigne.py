@@ -1,4 +1,3 @@
-
 import bpy
 import json
 import os
@@ -256,4 +255,106 @@ if obj.type == 'CURVE':
                     with open(file_name, "w") as write_file:
                          write_file.write(basic_data)
                     
-                    
+        elif curvetype =='POLY':
+          print("curve is closed:", subcurve.use_cyclic_u)
+          index= -1
+          cox_list= []
+          coy_list= []
+          for point in subcurve.points:
+            cox_list.append(point.co[0])
+            coy_list.append(point.co[1])
+            nb_of_points= len(cox_list)
+          for i in range(len(cox_list)):
+                if (i > 0) and (i != len(cox_list)-1):
+                    print("cas i>0 et != de longueur-1")
+                    data= {"parameters": [{
+                        "value": [
+                            cox_list[i],
+                            coy_list[i]
+                        ],
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
+                    }
+
+                    basic_data = basic_data + ',' + json.dumps(data)
+                elif (i == 0):
+                    print("cas i=0")
+                    data ={"parameters": [{
+                        "value": [
+                            cox_list[i],
+                            coy_list[i]
+                        ],
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey",
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
+                    }
+
+                    basic_data = basic_data + json.dumps(data)
+                else:
+                    print("cas i= longueur-1")
+                    data = {"parameters": [{
+                        "value": [
+                            cox_list[i],
+                            coy_list[i]
+                        ],
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
+                    }
+
+                    data1 = {"parameters": [{
+                        "value": [
+                            cox_list[0],
+                            coy_list[0]
+                        ],
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i+1),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
+                    }
+                    basic_data = basic_data + ',' + json.dumps(data)
+                    basic_data = basic_data + ',' + json.dumps(data1) + basic_data1
+                    print("basic_data : ",basic_data)
+                    final_data = json.dumps(basic_data)
+                    with open(file_name, "w") as write_file:
+                      write_file.write(basic_data)
