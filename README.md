@@ -1,13 +1,15 @@
  #  My W.I.P exploration of open-source solutions
  ## to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions with:
-## Chataigne <--> Blender
+## Blender <--> Chataigne (ex.: design 2D/3D curves in Blender to use them in Chataigne)
 (http://benjamin.kuperberg.fr/chataigne) \
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
  Note:\
     Launch blender in commandline/terminal to use ["blender2chataigne.py"](../master/blender_files/blender_scripts) script \
-    to export 2D/3D BEZIER and POLY curves(3D curves are converted in 2D) from Blender and choose\
+    to export 2D/3D BEZIER and POLY selected curves(for now, 3D curves are converted in 2D) from Blender and choose\
     save path and output filename of your *.lilnut file, usable next in Chataigne\
     (file > import) as a 2D Mapping in a new sequence!\
+ToDo:\
+    Add suupport for 3D export (Mapping2D for XY + Mapping for Z)
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
 ![old_blender-holophonix_animation](https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif)
 ## Open-Stage-Control
