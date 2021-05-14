@@ -4,8 +4,8 @@
 (http://benjamin.kuperberg.fr/chataigne) \
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
  Note:\
-    Launch blender in commandline/terminal to use ["bezier-blender2chataigne.py"](../master/blender_files/blender_scripts) script \
-    to export 2D/3D bezier curves(3D curves are converted in 2D) from Blender and choose\
+    Launch blender in commandline/terminal to use ["blender2chataigne.py"](../master/blender_files/blender_scripts) script \
+    to export 2D/3D BEZIER and POLY curves(3D curves are converted in 2D) from Blender and choose\
     save path and output filename of your *.lilnut file, usable next in Chataigne\
     (file > import) as a 2D Mapping in a new sequence!\
 <img src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="50%">
