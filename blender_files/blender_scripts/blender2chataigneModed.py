@@ -24,16 +24,24 @@ basic_data1 = '"cues": {"hideInEditor": true}, "editing": true}], "routers": nul
 #save_path= "/your/default/path"
 
 # and comment the next block
+default_path = os.path.expanduser("~")
+default_path = default_path.replace(os.sep, '/')
+default_path = default_path + "/Documents"
+print("default_path", default_path)
+isPath = os.path.isdir(default_path)
+print("isPath", isPath)
+if isPath == False:
+    default_path = os.path.expanduser("~")
+    default_path = default_path.replace(os.sep, '/') 
 
-save_path = input("Where do you want to write the file?(choose a valid path, default= " + os.path.expanduser("~") + ": ")
-if save_path == None:
-    save_path = os.path.expanduser("~")
+save_path = input("Where do you want to write the file?(choose a valid path, default= " + default_path + ": ")
+if save_path == '':
+    save_path = default_path
 elif save_path:
     while not os.path.exists(save_path):
-        save_path = input("Invalid path!(choose a valid path or press enter for default= " + os.path.expanduser("~") + "): ")
+        save_path = input("Invalid path!(choose a valid path or press enter for default= " + default_path + "): ")
         if save_path == None:
-            save_path = os.path.expanduser("~")
-save_path = save_path.replace(os.sep, '/')
+            save_path = default_path
 print("save_path : ",save_path)
 #if you want to choose a fixed filename, uncomment the next line :
 
@@ -41,13 +49,18 @@ print("save_path : ",save_path)
 
 # and comment the next block
 filename = input("OK! Now, which name do you choose for your file(*.lilnut)? : ")
-print("Ready,GO!")
+while filename == '':
+    filename = input("Choose a name for your file(*.lilnut)? : ")
+
+#print("Ready,GO!")
 ########################################################
 
 #################
 ##complete path##
 #################
 file_name= os.path.join(save_path, filename+".lilnut")
+
+#print("Ready,GO!")
 #################
 
 ###############
@@ -110,8 +123,8 @@ if obj.type == 'CURVE':
                 hry_list.append(bezpoint.handle_right[1])
                 
             nb_of_points = len(cox_list)
-            print("length", nb_of_points) 
-            print(range(nb_of_points))
+            print("Number of points : ", nb_of_points) 
+            #print(range(nb_of_points))
 
             
 ####################################################################################################
@@ -256,7 +269,7 @@ if obj.type == 'CURVE':
                     }
 
                     data_2D = data_2D + json.dumps(data)
-                    print("data2D_firststep : ",data_2D)
+                    #print("data2D_firststep : ",data_2D)
                     data_3Dz = data_3Dz + json.dumps(z_data)
                     #if export_mode == 1:
                     #    basic_data = basic_data + mode2d_add + json.dumps(data)
@@ -373,12 +386,12 @@ if obj.type == 'CURVE':
                     data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
                     #print("data2D_finaltstep : ",data_2D)
                     data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
-                    print("export_mode_log",export_mode)
+                    #print("export_mode_log",export_mode)
                     if int(export_mode) == 1:
-                        print("c'est parti pour le mode 1")
+                        print("Ready for Bezier2D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1
                     else:
-                        print("c'est parti pour le mode 2")
+                        print("Ready for Bezier3D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode3d_add1 + basic_data1
 
                     #basic_data = basic_data + ',' + json.dumps(data)
@@ -400,6 +413,7 @@ if obj.type == 'CURVE':
                             datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
                         with open(file_name, "w") as json_file: #write it back to the file
                             json.dump(datawrited, json_file)
+                            print("So, your file path is : ", file_name)
 
 ###############################
 ##Same things for POLY curves##
@@ -415,7 +429,7 @@ if obj.type == 'CURVE':
                 cox_list.append(point.co[0])
                 coy_list.append(point.co[1])
                 coz_list.append(point.co[2])
-                print("coz_list",coz_list)
+                #print("coz_list",coz_list)
                 nb_of_points= len(cox_list)
             data_2D = ''
             data_3Dz = ''
@@ -514,9 +528,9 @@ if obj.type == 'CURVE':
                     }
 
                     data_2D = data_2D + json.dumps(data)
-                    print("polydata2d.1",data_2D)
+                    #print("polydata2d.1",data_2D)
                     data_3Dz = data_3Dz + json.dumps(z_data)
-                    print("polydata3dz.1", data_3Dz)
+                    #print("polydata3dz.1", data_3Dz)
                 else:
                     #print("cas i= longueur-1")
                     data = {"parameters": [{
@@ -608,12 +622,12 @@ if obj.type == 'CURVE':
                     data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
                     #print("data2D_finaltstep : ",data_2D)
                     data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
-                    print("export_mode_log",export_mode)
+                    #print("export_mode_log",export_mode)
                     if int(export_mode) == 1:
-                        print("c'est parti pour le mode 1")
+                        print("Ready for Poly2D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1
                     else:
-                        print("c'est parti pour le mode 2")
+                        print("Ready for Poly3D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode3d_add1 + basic_data1
 
                     with open(file_name, "w") as write_file:
@@ -625,3 +639,4 @@ if obj.type == 'CURVE':
                             datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
                         with open(file_name, "w") as json_file: #write it back to the file
                             json.dump(datawrited, json_file)
+                            print("So, your file path is : ", file_name)
