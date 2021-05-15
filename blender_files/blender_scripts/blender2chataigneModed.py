@@ -34,6 +34,7 @@ elif save_path:
         if save_path == None:
             save_path = os.path.expanduser("~")
 save_path = save_path.replace(os.sep, '/')
+print("save_path : ",save_path)
 #if you want to choose a fixed filename, uncomment the next line :
 
 #filename= "your_filename"
@@ -53,8 +54,11 @@ file_name= os.path.join(save_path, filename+".lilnut")
 ##Export Modes##
 ###############
 export_mode = input("Do you want to export in 2D mode (1) or 3D mode (2)?(default = 2D mode) : ")
-while not export_mode != 1 and export_mode != 2:
-    export_mode = input("Not a valid number! Choose 2D mode (1) or 3D mode (2)?(default = 2D mode) : ")
+if save_path == None:
+    export_mode = int(1)
+elif export_mode:
+    while not export_mode != 1 and export_mode != 2:
+        export_mode = input("Not a valid number! Choose 2D mode (1) or 3D mode (2)?(default = 2D mode) : ")
 export_mode = str(export_mode)
 print("choosed export_mode : ", export_mode)
 
@@ -97,6 +101,7 @@ if obj.type == 'CURVE':
                 coy_list.append(bezpoint.co[1])
                 # print("coy", coy_list)
                 coz_list.append(bezpoint.co[2])
+                print("coz_list",coz_list)
                 hlx_list.append(bezpoint.handle_left[0])
                 # print("hlx", hlx_list)
                 hly_list.append(bezpoint.handle_left[1])
@@ -388,12 +393,13 @@ if obj.type == 'CURVE':
 ###########################
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                    with open(file_name, "r") as read_file:
-                        datawrited = json.load(read_file)
-                        datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
-                        datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
-                    with open(file_name, "w") as json_file: #write it back to the file
-                        json.dump(datawrited, json_file)
+                    if int(export_mode) != 1:
+                        with open(file_name, "r") as read_file:
+                            datawrited = json.load(read_file)
+                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
+                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
+                        with open(file_name, "w") as json_file: #write it back to the file
+                            json.dump(datawrited, json_file)
 
 ###############################
 ##Same things for POLY curves##
@@ -409,6 +415,7 @@ if obj.type == 'CURVE':
                 cox_list.append(point.co[0])
                 coy_list.append(point.co[1])
                 coz_list.append(point.co[2])
+                print("coz_list",coz_list)
                 nb_of_points= len(cox_list)
             data_2D = ''
             data_3Dz = ''
@@ -611,9 +618,10 @@ if obj.type == 'CURVE':
 
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                    with open(file_name, "r") as read_file:
-                        datawrited = json.load(read_file)
-                        datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
-                        datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
-                    with open(file_name, "w") as json_file: #write it back to the file
-                        json.dump(datawrited, json_file)
+                    if int(export_mode) != 1:
+                        with open(file_name, "r") as read_file:
+                            datawrited = json.load(read_file)
+                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
+                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
+                        with open(file_name, "w") as json_file: #write it back to the file
+                            json.dump(datawrited, json_file)
