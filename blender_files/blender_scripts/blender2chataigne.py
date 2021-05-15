@@ -80,7 +80,7 @@ print("choosed export_mode : ", export_mode)
 ## List coordinates of curve points and handles ##
 ##################################################
 obj= bpy.context.active_object
-
+ob_curve = bpy.data.objects.get(obj.name,None)
 if obj.type == 'CURVE':
     for subcurve in obj.data.splines:
         curvetype= subcurve.type
@@ -109,18 +109,25 @@ if obj.type == 'CURVE':
                 'tilt'                   # investigate :)
                 # use     print(dir(bezpoint))  to see all
                 """
-                cox_list.append(bezpoint.co[0])
+                xyz = ob_curve.matrix_world @ bezpoint.co
+                xyz_left = ob_curve.matrix_world @ bezpoint.handle_left
+                xyz_right = ob_curve.matrix_world @ bezpoint.handle_right
+                print("xyz", xyz)
+                print("xyz_left", xyz_left)
+                print("xyz_right", xyz_right)
+
+                cox_list.append(xyz[0])
                 # print("cox", cox_list)
-                coy_list.append(bezpoint.co[1])
+                coy_list.append(xyz[1])
                 # print("coy", coy_list)
-                coz_list.append(bezpoint.co[2])
+                coz_list.append(xyz[2])
                 print("coz_list",coz_list)
-                hlx_list.append(bezpoint.handle_left[0])
+                hlx_list.append(xyz_left[0])
                 # print("hlx", hlx_list)
-                hly_list.append(bezpoint.handle_left[1])
+                hly_list.append(xyz_left[1])
                 # print("hly", hly_list)
-                hrx_list.append(bezpoint.handle_right[0])
-                hry_list.append(bezpoint.handle_right[1])
+                hrx_list.append(xyz_right[0])
+                hry_list.append(xyz_right[1])
                 
             nb_of_points = len(cox_list)
             print("Number of points : ", nb_of_points) 
