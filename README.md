@@ -7,7 +7,7 @@
     Launch blender in commandline/terminal to use [blender2chataigne.py](../master/blender_files/blender_scripts) script \
     to export 2D/3D BEZIER and POLY selected curves in 2D or 3D mode\
     from Blender and choose save path and output filename of your *.lilnut file,\
-    usable next in Chataigne(file > import) as a 2D Mapping(s) in a new sequence!\
+    usable next in Chataigne(file > import) as 2D Mapping(s) in a new sequence!\
     (for now, 3D curves are converted in 2 Mapping2D. One for XY, the other for YZ)\
  
 <p align="center">
