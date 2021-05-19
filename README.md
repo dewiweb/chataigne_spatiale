@@ -12,7 +12,7 @@
   -- (in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.)--\
   -- choose a specific length of automation/sequence or use standard one (30sec) --\
   -- choose to close unclosed curves(for cyclic automation) --\
-  => You've got your *.lilnut file containing a sequence named like this one!!\
+  => You've got your *.lilnut file containing a sequence named like this one!!
  
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
