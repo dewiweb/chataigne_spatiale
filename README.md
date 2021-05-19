@@ -1,13 +1,13 @@
- #  An exploration of open-source tools\ to control 2D/3D positions/trajectories of objects (object-oriented audio) \ in live conditions with:
+ #  An exploration of tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne)
-###(ex.: design 2D/3D curves in Blender to use them in Chataigne)  \
-+  with [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) \
+###(ex.: design 2D/3D curves in Blender to use them in Chataigne)  
++  with [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) 
 +  and [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
 ++ INSTRUCTIONS to use [blender2chataigne.py](../master/blender_files/blender_scripts) script\
 ++    to export 2D/3D BEZIER and POLY selected curves usable next in Chataigne(file > import)\
 ++    as Mapping(s) in a new sequence and:\
   -- Launch blender in commandline/terminal\
-  -- choose save path and output filename of your *.lilnut file,\
+  -- choose save path and filename of your *.lilnut file,\
   -- choose an export mode:\
   -- in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed easing.--\
   -- in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.--\
