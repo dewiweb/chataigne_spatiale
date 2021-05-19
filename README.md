@@ -5,10 +5,14 @@
 (https://www.blender.org/) with AddRoutes add-on (http://www.jpfep.net/pages/addroutes/) \
   Note:
     Launch blender in commandline/terminal to use [blender2chataigne.py](../master/blender_files/blender_scripts) script \
-    to export 2D/3D BEZIER and POLY selected curves in 2D or 3D mode\
-    from Blender and choose save path and output filename of your *.lilnut file,\
-    usable next in Chataigne(file > import) as 2D Mapping(s) in a new sequence!\
-    (for now, 3D curves are converted in 2 Mapping2D. One for XY, the other for YZ)\
+    to export 2D/3D BEZIER and POLY selected curves usable next in Chataigne(file > import)\
+    as Mapping(s) in a new sequence and:\
+    -- choose save path and output filename of your *.lilnut file,\
+    -- choose an export mode:\
+    -- in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed easing.--\
+    -- in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.--\
+    -- choose a specific length of automation/sequence or use standard one (30sec) --\
+    => You've got your *.lilnut file containing a sequence named this one!!\
  
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
