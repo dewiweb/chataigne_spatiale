@@ -398,7 +398,7 @@ if obj.type == 'CURVE':
                     final_data = json.dumps(f_data)
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                        #print("So, your file path is : ", file_name)
+                        print("So, your file path is : ", file_name)
                     if int(export_mode) != 1:
                         with open(file_name, "r") as read_file:
                             datawrited = json.load(read_file)
@@ -555,7 +555,7 @@ if obj.type == 'CURVE':
                     final_data = json.dumps(f_data)
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                        #print("So, your file path is : ", file_name)
+                        print("So, your file path is : ", file_name)
                     if int(export_mode) != 1:
                         with open(file_name, "r") as read_file:
                             datawrited = json.load(read_file)
