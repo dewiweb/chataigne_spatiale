@@ -375,10 +375,16 @@ if obj.type == 'CURVE':
                     z_data1["parameters"][1]["value"] = coz_list[i]
                     z_data1["niceName"] = "Key " + str(i+1)
                     
-                    data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
-                    data_3Dx = data_3Dx + ',' + json.dumps(x_data) + ',' + json.dumps(x_data1)
-                    data_3Dy = data_3Dy + ',' + json.dumps(y_data) + ',' + json.dumps(y_data1)
-                    data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
+                    if toClose != "":
+                        data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
+                        data_3Dx = data_3Dx + ',' + json.dumps(x_data) + ',' + json.dumps(x_data1)
+                        data_3Dy = data_3Dy + ',' + json.dumps(y_data) + ',' + json.dumps(y_data1)
+                        data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
+                    else:
+                        data_2D = data_2D + ',' + json.dumps(data)
+                        data_3Dx = data_3Dx + ',' + json.dumps(x_data)
+                        data_3Dy = data_3Dy + ',' + json.dumps(y_data)
+                        data_3Dz = data_3Dz + ',' + json.dumps(z_data)
                     
                     if export_mode == 1:
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1
@@ -420,14 +426,21 @@ if obj.type == 'CURVE':
 
         elif curvetype =='POLY':
             print("curve is closed:", subcurve.use_cyclic_u)
+
+            if subcurve.use_cyclic_u == False:
+                toClose = input("Curve is not closed, do you want to close it?(1) for 'Yes' or press return : ")
+
+
             index= -1
             cox_list= []
             coy_list= []
             coz_list= []
+
             for point in subcurve.points:
-                cox_list.append(point.co[0])
-                coy_list.append(point.co[1])
-                coz_list.append(point.co[2])
+                xyz = ob_curve.matrix_world @ point.co
+                cox_list.append(xyz[0])
+                coy_list.append(xyz[1])
+                coz_list.append(xyz[2])
                 nb_of_points= len(cox_list)
             data_2D = ''
             data_3Dx = ''
@@ -536,10 +549,16 @@ if obj.type == 'CURVE':
                     z_data1["parameters"][1]["value"] = coz_list[i]
                     z_data1["niceName"] = "Key " + str(i+1)
                     
-                    data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
-                    data_3Dx = data_3Dx + ',' + json.dumps(x_data) + ',' + json.dumps(x_data1)
-                    data_3Dy = data_3Dy + ',' + json.dumps(y_data) + ',' + json.dumps(y_data1)
-                    data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
+                    if toClose != "":
+                        data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
+                        data_3Dx = data_3Dx + ',' + json.dumps(x_data) + ',' + json.dumps(x_data1)
+                        data_3Dy = data_3Dy + ',' + json.dumps(y_data) + ',' + json.dumps(y_data1)
+                        data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
+                    else:
+                        data_2D = data_2D + ',' + json.dumps(data)
+                        data_3Dx = data_3Dx + ',' + json.dumps(x_data)
+                        data_3Dy = data_3Dy + ',' + json.dumps(y_data)
+                        data_3Dz = data_3Dz + ',' + json.dumps(z_data)
                     
                     if export_mode == 1:
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1

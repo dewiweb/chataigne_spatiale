@@ -12,6 +12,7 @@
     -- in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed easing.--\
     -- in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.--\
     -- choose a specific length of automation/sequence or use standard one (30sec) --\
+    -- choose to close unclosed curves(for cyclic automation) --\
     => You've got your *.lilnut file containing a sequence named this one!!\
  
 <p align="center">
