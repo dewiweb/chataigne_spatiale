@@ -1,8 +1,10 @@
  #  An exploration of open-source tools\ to control 2D/3D positions/trajectories of objects (object-oriented audio) \ in live conditions with:
-## Blender <--> Chataigne (ex.: design 2D/3D curves in Blender to use them in Chataigne)(https://www.blender.org/) (http://benjamin.kuperberg.fr/chataigne) \
-+ AddRoutes (http://www.jpfep.net/pages/addroutes/) and \
-+ Flexi Bezier Tool(https://github.com/shspage/blenderbezierutils) Blender addons.\
-  INSTRUCTIONS:\
+## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne)
+###(ex.: design 2D/3D curves in Blender to use them in Chataigne)  \
++  with [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for blender) \
++  and [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse)\
++   Blender addons.\
+++ INSTRUCTIONS:\
     Launch blender in commandline/terminal to use [blender2chataigne.py](../master/blender_files/blender_scripts) script \
     to export 2D/3D BEZIER and POLY selected curves usable next in Chataigne(file > import)\
     as Mapping(s) in a new sequence and:\
