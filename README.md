@@ -3,7 +3,7 @@
 +  [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) 
 +  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
 + INSTRUCTIONS to use [blender2chataigne.py](../master/blender_files/blender_scripts) script to export 2D/3D BEZIER\
-  and POLY selected curves usable next in Chataigne(file > import) as Mapping(s) in a new sequence and:\
+  and POLY selected curves usable next in Chataigne(file > import) as Mapping(s) in a new sequence:\
   -- Launch blender in commandline/terminal\
   -- choose save path and filename of your *.lilnut file,\
   -- choose an export mode:\
