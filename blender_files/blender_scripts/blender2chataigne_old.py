@@ -7,10 +7,10 @@ import os
 ## basic structure of *.lilnut  sequence file ##
 ################################################
 basic_data = '{"modules": null, "customVariables": null, "states": null, "sequences": [{"niceName": "Sequence", "type": "Sequence", "layers": {"hideInEditor": true, "items": ['
-mode2d_add = '{"parameters": [{"value": 200.0, "controlAddress": "/listSize"}, {"value": 200, "hexMode": false, "controlAddress": "/uiHeight"}, {"value": [0.2117647081613541, 0.2117647081613541, 0.2117647081613541, 1.0], "controlAddress": "/layerColor"}], "niceName": "Mapping 2D", "containers": {"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true}, "filters": {}, "outputs": {}}, "curve2D": {"parameters": [{"value": false,"controlAddress": "/keySync"}],"items": ['
-mode3d_add = '{"parameters": [{"value": 120.0, "controlAddress": "/listSize"}, {"value": 120, "hexMode": false, "controlAddress": "/uiHeight"}, {"value": [0.2117647081613541, 0.2117647081613541, 0.2117647081613541, 1.0], "controlAddress": "/layerColor"}], "niceName": "Mapping", "containers": {"automation": { "parameters": [{"value": 30.0,"controlAddress": "/length"},{"value": [0.0,1.0],"controlAddress": "/viewValueRange"},{"value": [0.0,1.0],"controlAddress": "/range","enabled": true}],"hideInEditor": true,"items": ['
+mode2d_add = '{"parameters": [{"value": 200.0, "controlAddress": "/listSize"}, {"value": 200, "hexMode": false, "controlAddress": "/uiHeight"}, {"value": [0.2117647081613541, 0.2117647081613541, 0.2117647081613541, 1.0], "controlAddress": "/layerColor"}], "niceName": "Mapping XY", "containers": {"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true}, "filters": {}, "outputs": {}}, "curve2D": {"parameters": [{"value": false,"controlAddress": "/keySync"}],"items": ['
+mode3d_add = '{"parameters": [{"value": 200.0, "controlAddress": "/listSize"}, {"value": 200, "hexMode": false, "controlAddress": "/uiHeight"}, {"value": [0.2117647081613541, 0.2117647081613541, 0.2117647081613541, 1.0], "controlAddress": "/layerColor"}], "niceName": "Mapping YZ", "containers": {"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true}, "filters": {}, "outputs": {}}, "curve2D": {"parameters": [{"value": false,"controlAddress": "/keySync"}],"items": ['
 mode2d_add1 = ']}},"type": "Mapping 2D"}'
-mode3d_add1 = ']},"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true},"filters": {},"outputs": {}}},"type": "Mapping"}]},'
+#mode3d_add1 = ']},"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true},"filters": {},"outputs": {}}},"type": "Mapping"}]},'
 basic_data1 = '"cues": {"hideInEditor": true}, "editing": true}], "routers": null}'
 
 ################################################
@@ -67,12 +67,17 @@ file_name= os.path.join(save_path, filename+".lilnut")
 ##Export Modes##
 ###############
 export_mode = input("Do you want to export in 2D mode (1) or 3D mode (2)?(default = 2D mode) : ")
-if save_path == None:
-    export_mode = int(1)
+if export_mode == "":
+    export_mode = 1
 elif export_mode:
-    while not export_mode != 1 and export_mode != 2:
+    while  export_mode !="1" and export_mode !="2":
         export_mode = input("Not a valid number! Choose 2D mode (1) or 3D mode (2)?(default = 2D mode) : ")
-export_mode = str(export_mode)
+        if export_mode == "":
+            export_mode = 1
+
+if export_mode != 'int':
+    export_mode = int(export_mode)
+
 print("choosed export_mode : ", export_mode)
 
 
@@ -88,15 +93,19 @@ if obj.type == 'CURVE':
 
         if curvetype == 'BEZIER':
             print("curve is closed:", subcurve.use_cyclic_u)
-
+            if subcurve.use_cyclic_u == False:
+                toClose = input("Curve is not closed, do you want to close it?(1) for 'Yes' or press return : ")
+                
             index= -1
             cox_list= []
             coy_list= []
             coz_list= []
             hlx_list= []
             hly_list= []
+            hlz_list= []
             hrx_list= []
             hry_list= []
+            hrz_list= []
             for bezpoint in subcurve.bezier_points:
                 """
                 'handle_left_type',      # kind of handles
@@ -117,17 +126,14 @@ if obj.type == 'CURVE':
                 print("xyz_right", xyz_right)
 
                 cox_list.append(xyz[0])
-                # print("cox", cox_list)
                 coy_list.append(xyz[1])
-                # print("coy", coy_list)
                 coz_list.append(xyz[2])
-                print("coz_list",coz_list)
                 hlx_list.append(xyz_left[0])
-                # print("hlx", hlx_list)
                 hly_list.append(xyz_left[1])
-                # print("hly", hly_list)
+                hlz_list.append(xyz_left[2])
                 hrx_list.append(xyz_right[0])
                 hry_list.append(xyz_right[1])
+                hrz_list.append(xyz_right[2])
                 
             nb_of_points = len(cox_list)
             print("Number of points : ", nb_of_points) 
@@ -184,27 +190,44 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": i*(30/(nb_of_points)),
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key " + str(i),
-                            "containers": {
-                                "easing": {
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                            "parameters": [
+                                {
+                                    "value": [
+                                        hry_list[i] -
+                                        coy_list[i],
+                                        hrz_list[i] -
+                                        coz_list[i]
+                                    ],
+                                    "controlAddress": "/anchor1"
+                                },
+                                {
+                                    "value": [
+                                        hly_list[i+1] -
+                                        coy_list[i+1],
+                                        hlz_list[i+1] -
+                                        coz_list[i+1]
+                                    ],
+                                    "controlAddress": "/anchor2"
                                 }
-                            },
-                        "type": "Key"
+                            ]
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     #basic_data = basic_data + ',' + json.dumps(data)
@@ -252,27 +275,44 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": 0,
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key",
-                            "containers": {
-                                "easing": {
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey",
+                        "containers": {
+                        "easing": {
+                            "parameters": [
+                                {
+                                    "value": [
+                                        hry_list[i] -
+                                        coy_list[i],
+                                        hrz_list[i] -
+                                        coz_list[i]
+                                    ],
+                                    "controlAddress": "/anchor1"
+                                },
+                                {
+                                    "value": [
+                                        hly_list[i+1] -
+                                        coy_list[i+1],
+                                        hlz_list[i+1] -
+                                        coz_list[i+1]
+                                    ],
+                                    "controlAddress": "/anchor2"
                                 }
-                            },
-                        "type": "Key"
+                            ]
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     data_2D = data_2D + json.dumps(data)
@@ -344,62 +384,76 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": i*(30/nb_of_points),
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key " + str(i),
-                            "containers": {
-                                "easing": {
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                            "parameters": [
+                                {
+                                    "value": [
+                                        hry_list[i] -
+                                        coy_list[i],
+                                        hrz_list[i] -
+                                        coz_list[i]
+                                    ],
+                                    "controlAddress": "/anchor1"
+                                },
+                                {
+                                    "value": [
+                                        hly_list[0] -
+                                        coy_list[0],
+                                        hlz_list[0] -
+                                        coz_list[0]
+                                    ],
+                                    "controlAddress": "/anchor2"
                                 }
-                            },
-                        "type": "Key"
+                            ]
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
-                    z_data1 = {
-                        "parameters": [
-                            {
-                                "value": 30,
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data1 = {"parameters": [{
+                        "value": [
+                            coy_list[0],
+                            coz_list[0]
                         ],
-                        "niceName": "Key " + str(i+1),
-                            "containers": {
-                                "easing": {
-                                }
-                            },
-                        "type": "Key"
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i+1),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
                     #print("data2D_finaltstep : ",data_2D)
                     data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
                     #print("export_mode_log",export_mode)
-                    if int(export_mode) == 1:
+                    if export_mode == 1:
                         print("Ready for Bezier2D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1
                     else:
                         print("Ready for Bezier3D!")
-                        final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode3d_add1 + basic_data1
+                        final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode2d_add1 + "]}," + basic_data1
 
                     #basic_data = basic_data + ',' + json.dumps(data)
                     #basic_data = basic_data + ',' + json.dumps(data1) + basic_data1
@@ -413,14 +467,7 @@ if obj.type == 'CURVE':
 ###########################
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                    if int(export_mode) != 1:
-                        with open(file_name, "r") as read_file:
-                            datawrited = json.load(read_file)
-                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
-                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
-                        with open(file_name, "w") as json_file: #write it back to the file
-                            json.dump(datawrited, json_file)
-                            print("So, your file path is : ", file_name)
+                        print("So, your file path is : ", file_name)
 
 ###############################
 ##Same things for POLY curves##
@@ -433,9 +480,11 @@ if obj.type == 'CURVE':
             coy_list= []
             coz_list= []
             for point in subcurve.points:
-                cox_list.append(point.co[0])
-                coy_list.append(point.co[1])
-                coz_list.append(point.co[2])
+                xyz = ob_curve.matrix_world @ point.co
+                print("xyz", xyz)
+                cox_list.append(xyz[0])
+                coy_list.append(xyz[1])
+                coz_list.append(xyz[2])
                 #print("coz_list",coz_list)
                 nb_of_points= len(cox_list)
             data_2D = ''
@@ -463,27 +512,24 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": i*(30/(nb_of_points)),
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key " + str(i),
-                            "containers": {
-                                "easing": {
-                                }
-                            },
-                        "type": "Key"
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     data_2D = data_2D + ',' + json.dumps(data)
@@ -511,27 +557,24 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": 0,
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key",
-                            "containers": {
-                                "easing": {
-                                }
-                            },
-                        "type": "Key"
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey",
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     data_2D = data_2D + json.dumps(data)
@@ -580,70 +623,56 @@ if obj.type == 'CURVE':
                         "type": "2DKey"
                     }
 
-                    z_data = {
-                        "parameters": [
-                            {
-                                "value": i*(30/nb_of_points),
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    z_data = {"parameters": [{
+                        "value": [
+                            coy_list[i],
+                            coz_list[i]
                         ],
-                        "niceName": "Key " + str(i),
-                            "containers": {
-                                "easing": {
-                                }
-                            },
-                        "type": "Key"
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
                     }
-
-                    z_data1 = {
-                        "parameters": [
-                            {
-                                "value": 30,
-                                "controlAddress": "/position"
-                            },
-                            {
-                                "value": coz_list[i],
-                                "controlAddress": "/value"
-                            },
-                            {
-                                "value": "Linear",
-                                "controlAddress": "/easingType"
-                            }
+                    ],
+                        "niceName": "2DKey " + str(i),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
+                    }
+                    z_data1 = {"parameters": [{
+                        "value": [
+                            coy_list[0],
+                            coz_list[0]
                         ],
-                        "niceName": "Key " + str(i+1),
-                            "containers": {
-                                "easing": {
-                                }
-                            },
-                        "type": "Key"
+                        "controlAddress": "/viewUIPosition"
+                    },
+                        {
+                        "value": "Bezier",
+                        "controlAddress": "/easingType"
+                    }
+                    ],
+                        "niceName": "2DKey " + str(i+1),
+                        "containers": {
+                        "easing": {
+                        }
+                    },
+                        "type": "2DKey"
                     }
 
                     data_2D = data_2D + ',' + json.dumps(data) + ',' + json.dumps(data1)
                     #print("data2D_finaltstep : ",data_2D)
                     data_3Dz = data_3Dz + ',' + json.dumps(z_data) + ',' + json.dumps(z_data1)
                     #print("export_mode_log",export_mode)
-                    if int(export_mode) == 1:
+                    if export_mode == 1:
                         print("Ready for Poly2D!")
                         final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "]}," + basic_data1
                     else:
                         print("Ready for Poly3D!")
-                        final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode3d_add1 + basic_data1
+                        final_data = basic_data + mode2d_add + data_2D + mode2d_add1 + "," + mode3d_add +  data_3Dz + mode2d_add1 + "]}," + basic_data1
 
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                    if int(export_mode) != 1:
-                        with open(file_name, "r") as read_file:
-                            datawrited = json.load(read_file)
-                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
-                            datawrited["sequences"][0]['layers']['items'][1]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
-                        with open(file_name, "w") as json_file: #write it back to the file
-                            json.dump(datawrited, json_file)
-                            print("So, your file path is : ", file_name)
+                        print("So, your file path is : ", file_name)
