@@ -1,6 +1,7 @@
 import bpy
 import json
 import os
+from math import sqrt
 
 
 ################################################
@@ -17,7 +18,7 @@ mode3dy_add1 = ']},"recorder": {"editorIsCollapsed": true}, "mapping": {"niceNam
 mode3dz_add1 = ']},"recorder": {"editorIsCollapsed": true}, "mapping": {"niceName": "Mapping Z", "type": "Mapping", "im": {"hideInEditor": true, "items": [{"parameters": [{"value": "", "controlAddress": "/inputValue"}], "niceName": "Input Value", "type": "Input Value"}]}, "params": {"parameters": [{"value": 50, "hexMode": false, "controlAddress": "/updateRate"}], "editorIsCollapsed": true},"filters": {},"outputs": {}}},"type": "Mapping"}'
 basic_data1 = '"cues": {"hideInEditor": true}, "editing": true}], "routers": null}'
 
-key_structure = {
+key_structure_x = {
     "parameters": [
         {
             "value": "",
@@ -40,7 +41,99 @@ key_structure = {
     "type": "Key"
         }
 
-key_structure1 = {
+key_structure_y = {
+    "parameters": [
+        {
+            "value": "",
+            "controlAddress": "/position"
+        },
+        {
+            "value": "",
+            "controlAddress": "/value"
+        },
+        {
+            "value": "Linear",
+            "controlAddress": "/easingType"
+        }
+    ],
+    "niceName": "",
+        "containers": {
+            "easing": {
+            }
+        },
+    "type": "Key"
+        }
+
+key_structure_z = {
+    "parameters": [
+        {
+            "value": "",
+            "controlAddress": "/position"
+        },
+        {
+            "value": "",
+            "controlAddress": "/value"
+        },
+        {
+            "value": "Linear",
+            "controlAddress": "/easingType"
+        }
+    ],
+    "niceName": "",
+        "containers": {
+            "easing": {
+            }
+        },
+    "type": "Key"
+        }
+
+key_structure1_x = {
+    "parameters": [
+        {
+            "value": "",
+            "controlAddress": "/position"
+        },
+        {
+            "value": "",
+            "controlAddress": "/value"
+        },
+        {
+            "value": "Linear",
+            "controlAddress": "/easingType"
+        }
+    ],
+    "niceName": "",
+        "containers": {
+            "easing": {
+            }
+        },
+    "type": "Key"
+        }
+
+key_structure1_y = {
+    "parameters": [
+        {
+            "value": "",
+            "controlAddress": "/position"
+        },
+        {
+            "value": "",
+            "controlAddress": "/value"
+        },
+        {
+            "value": "Linear",
+            "controlAddress": "/easingType"
+        }
+    ],
+    "niceName": "",
+        "containers": {
+            "easing": {
+            }
+        },
+    "type": "Key"
+        }
+
+key_structure1_z = {
     "parameters": [
         {
             "value": "",
@@ -145,9 +238,7 @@ key2d_structure1 = {"parameters": [{
 default_path = os.path.expanduser("~")
 default_path = default_path.replace(os.sep, '/')
 default_path = default_path + "/Documents"
-print("default_path", default_path)
 isPath = os.path.isdir(default_path)
-print("isPath", isPath)
 if isPath == False:
     default_path = os.path.expanduser("~")
     default_path = default_path.replace(os.sep, '/') 
@@ -160,7 +251,6 @@ elif save_path:
         save_path = input("Invalid path!(choose a valid path or press enter for default= " + default_path + "): ")
         if save_path == None:
             save_path = default_path
-print("save_path : ",save_path)
 #if you want to choose a fixed filename, uncomment the next line :
 
 #filename= "your_filename"
@@ -200,15 +290,15 @@ if export_mode != 'int':
 print("choosed export_mode : ", export_mode)
 
 
-total_length = input("Do you want to override the standard length(30 sec)? if so, enter the desired length(in seconds) or press return : ")
-if total_length.isnumeric() == True:
-    total_length = total_length
-elif total_length == "":
-    total_length = "30.0"
+total_duration = input("Do you want to override the standard duration(30 sec)? if so, enter the desired duration(in seconds) or press return : ")
+if total_duration.isnumeric() == True:
+    total_duration = total_duration
+elif total_duration == "":
+    total_duration = "30.0"
 else:
-    while  total_length.isnumeric()!= True and total_length !="":
-        total_length =  input("Not a number! Please, enter a valid number or press return : ")
-print("total_length : ", total_length)
+    while  total_duration.isnumeric()!= True and total_duration !="":
+        total_duration =  input("Not a number! Please, enter a valid number or press return : ")
+print("total_duration : ", total_duration)
 
 ##################################################
 ## List coordinates of curve points and handles ##
@@ -250,8 +340,6 @@ if obj.type == 'CURVE':
                 hrz_list.append(xyz_right[2])
                 
             nb_of_points = len(cox_list)
-            print("Number of points : ", nb_of_points) 
-            #print(range(nb_of_points))
 
             
 ######################################################################################################
@@ -262,11 +350,22 @@ if obj.type == 'CURVE':
             data_3Dx = ''
             data_3Dy = ''
             data_3Dz = ''
+            steps_length = []
+            total_length = []
 
             for i in range(len(cox_list)):
-
+                if (i>0):
+                    steps_length.append(sqrt((cox_list[i]-cox_list[i-1])**2 + (coy_list[i]-coy_list[i-1])**2 +(coz_list[i]-coz_list[i-1])**2))
+            
+            if toClose != "" and i == len(cox_list)-1:
+                total_length = sum(steps_length) + sqrt((cox_list[i]-cox_list[0])**2 + (coy_list[i]-coy_list[0])**2 +(coz_list[i]-coz_list[0])**2)
+            else:
+                total_length = sum(steps_length)
+            
+            for i in range(len(cox_list)):
                 if (i > 0) and (i != len(cox_list)-1):
-
+                    stp_lgth_slc = steps_length[0:i:1]
+                    t_position = (float(total_duration)/total_length*sum(stp_lgth_slc))
                     data = key2d_structure
                     data["parameters"][0]["value"][0] = cox_list[i]
                     data["parameters"][0]["value"][1] = coy_list[i]
@@ -276,18 +375,18 @@ if obj.type == 'CURVE':
                     data["containers"]["easing"]["parameters"][1]["value"][0] = (hlx_list[i+1] - cox_list[i+1])
                     data["containers"]["easing"]["parameters"][1]["value"][1] = (hly_list[i+1] - coy_list[i+1])
 
-                    x_data = key_structure
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = t_position
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key " + str(i)
-
-                    y_data = key_structure
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = t_position
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key " + str(i)
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = t_position
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key " + str(i)
 
@@ -307,18 +406,18 @@ if obj.type == 'CURVE':
                     data["containers"]["easing"]["parameters"][1]["value"][0] = (hlx_list[i+1] - cox_list[i+1])
                     data["containers"]["easing"]["parameters"][1]["value"][1] = (hly_list[i+1] - coy_list[i+1])
 
-                    x_data = key_structure
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = 0
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key"
 
-                    y_data = key_structure
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = 0
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key"
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = 0
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key "
 
@@ -328,6 +427,11 @@ if obj.type == 'CURVE':
                     data_3Dz = data_3Dz + json.dumps(z_data)
 
                 else:
+                    if toClose !="":
+                        stp_lgth_slc = steps_length[0:(len(cox_list)-1):1]
+                        t_position = (float(total_duration)/total_length*sum(stp_lgth_slc))
+                    else:
+                        t_position = total_duration
 
                     data = key2d_structure
                     data["parameters"][0]["value"][0] = cox_list[i]
@@ -344,35 +448,35 @@ if obj.type == 'CURVE':
                     data1["niceName"] = "2DKey " + str(i+1)
                     data1["containers"]["easing"] = ""
 
-                    x_data = key_structure1
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = t_position 
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key " + str(i)
 
-                    y_data = key_structure1
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = t_position
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key " + str(i)
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = t_position
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key " + str(i)
 
 
-                    x_data1 = key_structure
-                    x_data1["parameters"][0]["value"] = int(float(total_length))
-                    x_data1["parameters"][1]["value"] = cox_list[i]
+                    x_data1 = key_structure1_x
+                    x_data1["parameters"][0]["value"] = float(total_duration)
+                    x_data1["parameters"][1]["value"] = cox_list[0]
                     x_data1["niceName"] = "Key " + str(i+1)
 
-                    y_data1 = key_structure
-                    y_data1["parameters"][0]["value"] = int(float(total_length))
-                    y_data1["parameters"][1]["value"] = coy_list[i]
+                    y_data1 = key_structure1_y
+                    y_data1["parameters"][0]["value"] = float(total_duration)
+                    y_data1["parameters"][1]["value"] = coy_list[0]
                     y_data1["niceName"] = "Key " + str(i+1)
 
-                    z_data1 = key_structure
-                    z_data1["parameters"][0]["value"] = int(float(total_length))
-                    z_data1["parameters"][1]["value"] = coz_list[i]
+                    z_data1 = key_structure1_z
+                    z_data1["parameters"][0]["value"] = float(total_duration)
+                    z_data1["parameters"][1]["value"] = coz_list[0]
                     z_data1["niceName"] = "Key " + str(i+1)
                     
                     if toClose != "":
@@ -398,13 +502,12 @@ if obj.type == 'CURVE':
 ###########################
                     f_data = json.loads(final_data)
                     f_data["sequences"][0]["niceName"] = str(filename)
-                    if total_length != "30.0":
-                        f_data["sequences"][0]["parameters"][0]["value"] = str(total_length)
-                        f_data["sequences"][0]["parameters"][3]["value"] = str(total_length)
+                    if total_duration != "30.0":
+                        f_data["sequences"][0]["parameters"][0]["value"] = str(total_duration)
+                        f_data["sequences"][0]["parameters"][3]["value"] = str(total_duration)
                     final_data = json.dumps(f_data)
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                        print("So, your file path is : ", file_name)
                     if int(export_mode) != 1:
                         with open(file_name, "r") as read_file:
                             datawrited = json.load(read_file)
@@ -414,11 +517,9 @@ if obj.type == 'CURVE':
                             datawrited["sequences"][0]['layers']['items'][2]['containers']['automation']['parameters'][1]['value'] = [min(coz_list), max(coz_list)]
                             datawrited["sequences"][0]['layers']['items'][0]['containers']['automation']['parameters'][1]['value'] = [min(cox_list), max(cox_list)]
                             datawrited["sequences"][0]['layers']['items'][2]['containers']['automation']['parameters'][2]['value'] = [min(coz_list), max(coz_list)]
-
-
                         with open(file_name, "w") as json_file: #write it back to the file
                             json.dump(datawrited, json_file)
-                            print("So, your file path is : ", file_name)
+            print("So, your file path is : ", file_name)
 
 ###############################
 ##Same things for POLY curves##
@@ -446,9 +547,24 @@ if obj.type == 'CURVE':
             data_3Dx = ''
             data_3Dy = ''
             data_3Dz = ''
+            steps_length = []
+            total_length = []
+
+            for i in range(len(cox_list)):
+                if (i>0):
+                    steps_length.append(sqrt((cox_list[i]-cox_list[i-1])**2 + (coy_list[i]-coy_list[i-1])**2 +(coz_list[i]-coz_list[i-1])**2))
+            
+            if toClose != "" and i == len(cox_list)-1:
+                total_length = sum(steps_length) + sqrt((cox_list[i]-cox_list[0])**2 + (coy_list[i]-coy_list[0])**2 +(coz_list[i]-coz_list[0])**2)
+            else:
+                total_length = sum(steps_length)
+
             for i in range(len(cox_list)):
 
                 if (i > 0) and (i != len(cox_list)-1):
+
+                    stp_lgth_slc = steps_length[0:i:1]
+                    t_position = (float(total_duration)/total_length*sum(stp_lgth_slc))
 
                     data = key2d_structure
                     data["parameters"][0]["value"][0] = cox_list[i]
@@ -456,18 +572,18 @@ if obj.type == 'CURVE':
                     data["niceName"] = "2DKey " + str(i)
                     data["containers"]["easing"] = ""
 
-                    x_data = key_structure
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = t_position
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key " + str(i)
 
-                    y_data = key_structure
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = t_position
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key " + str(i)
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = t_position
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key " + str(i)
 
@@ -484,18 +600,18 @@ if obj.type == 'CURVE':
                     data["niceName"] = "2DKey"
                     data["containers"]["easing"] = ""
 
-                    x_data = key_structure
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = 0
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key"
 
-                    y_data = key_structure
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = 0
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key"
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = 0
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key "
 
@@ -505,6 +621,12 @@ if obj.type == 'CURVE':
                     data_3Dz = data_3Dz + json.dumps(z_data)
 
                 else:
+                    if toClose !="":
+                        stp_lgth_slc = steps_length[0:(len(cox_list)-1):1]
+                        t_position = (float(total_duration)/total_length*sum(stp_lgth_slc))
+                    else:
+                        t_position = total_duration
+
 
                     data = key2d_structure
                     data["parameters"][0]["value"][0] = cox_list[i]
@@ -518,35 +640,35 @@ if obj.type == 'CURVE':
                     data1["niceName"] = "2DKey " + str(i+1)
                     data1["containers"]["easing"] = ""
 
-                    x_data = key_structure
-                    x_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    x_data = key_structure_x
+                    x_data["parameters"][0]["value"] = t_position
                     x_data["parameters"][1]["value"] = cox_list[i]
                     x_data["niceName"] = "Key " + str(i)
 
-                    y_data = key_structure
-                    y_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    y_data = key_structure_y
+                    y_data["parameters"][0]["value"] = t_position
                     y_data["parameters"][1]["value"] = coy_list[i]
                     y_data["niceName"] = "Key " + str(i)
 
-                    z_data = key_structure
-                    z_data["parameters"][0]["value"] = i*(int(float(total_length))/(nb_of_points))
+                    z_data = key_structure_z
+                    z_data["parameters"][0]["value"] = t_position
                     z_data["parameters"][1]["value"] = coz_list[i]
                     z_data["niceName"] = "Key " + str(i)
 
 
-                    x_data1 = key_structure1
-                    x_data1["parameters"][0]["value"] = int(float(total_length))
-                    x_data1["parameters"][1]["value"] = cox_list[i]
+                    x_data1 = key_structure1_x
+                    x_data1["parameters"][0]["value"] = float(total_duration)
+                    x_data1["parameters"][1]["value"] = cox_list[0]
                     x_data1["niceName"] = "Key " + str(i+1)
 
-                    y_data1 = key_structure1
-                    y_data1["parameters"][0]["value"] = int(float(total_length))
-                    y_data1["parameters"][1]["value"] = coy_list[i]
+                    y_data1 = key_structure1_y
+                    y_data1["parameters"][0]["value"] = float(total_duration)
+                    y_data1["parameters"][1]["value"] = coy_list[0]
                     y_data1["niceName"] = "Key " + str(i+1)
 
-                    z_data1 = key_structure1
-                    z_data1["parameters"][0]["value"] = int(float(total_length))
-                    z_data1["parameters"][1]["value"] = coz_list[i]
+                    z_data1 = key_structure1_z
+                    z_data1["parameters"][0]["value"] = float(total_duration)
+                    z_data1["parameters"][1]["value"] = coz_list[0]
                     z_data1["niceName"] = "Key " + str(i+1)
                     
                     if toClose != "":
@@ -568,13 +690,12 @@ if obj.type == 'CURVE':
 
                     f_data = json.loads(final_data)
                     f_data["sequences"][0]["niceName"] = str(filename)
-                    if total_length != "30.0":
-                        f_data["sequences"][0]["parameters"][0]["value"] = str(total_length)
-                        f_data["sequences"][0]["parameters"][3]["value"] = str(total_length)
+                    if total_duration != "30.0":
+                        f_data["sequences"][0]["parameters"][0]["value"] = str(total_duration)
+                        f_data["sequences"][0]["parameters"][3]["value"] = str(total_duration)
                     final_data = json.dumps(f_data)
                     with open(file_name, "w") as write_file:
                         write_file.write(final_data)
-                        print("So, your file path is : ", file_name)
                     if int(export_mode) != 1:
                         with open(file_name, "r") as read_file:
                             datawrited = json.load(read_file)
@@ -588,4 +709,4 @@ if obj.type == 'CURVE':
 
                         with open(file_name, "w") as json_file: #write it back to the file
                             json.dump(datawrited, json_file)
-                            print("So, your file path is : ", file_name)
+            print("So, your file path is : ", file_name)
