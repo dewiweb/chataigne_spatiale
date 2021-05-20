@@ -313,6 +313,8 @@ if obj.type == 'CURVE':
         if curvetype == 'BEZIER':
             if subcurve.use_cyclic_u == False:
                 toClose = input("Curve is not closed, do you want to close it?(1) for 'Yes' or press return : ")
+            else:
+                toClose ="noworry"
 
             index= -1
             cox_list= []
@@ -530,6 +532,8 @@ if obj.type == 'CURVE':
 
             if subcurve.use_cyclic_u == False:
                 toClose = input("Curve is not closed, do you want to close it?(1) for 'Yes' or press return : ")
+            else:
+                toClose ="noworry"
 
 
             index= -1
