@@ -8,11 +8,12 @@
   -- then, in commandline/terminal:\
   -- choose save path and filename of your *.lilnut file,\
   -- choose an export mode:\
-  -- (in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed easing.)--\
+  -- (in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed linear easing.)--\
   -- (in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.)--\
   -- choose a specific length of automation/sequence or use standard one (30sec) --\
   -- choose to close unclosed curves(for cyclic automation) --\
   => You've got your *.lilnut file containing a sequence named like this one!!
+  (bezier curves with acute angles could be export with some "noise", so convert them in "Poly" before!!)\
  
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
