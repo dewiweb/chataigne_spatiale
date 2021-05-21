@@ -9,6 +9,8 @@
   -- choose save path and filename of your *.lilnut file,\
   -- choose an export mode:\
   -- (in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed linear easing.)--\
+  -- (Due to the lack of a handle in 3D mode, sub-divide the bezier curves with\
+  -- a sufficient index and convert them to poly curves for a clean result.)--\
   -- (in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.)--\
   -- choose a specific length of automation/sequence or use standard one (30sec) --\
   -- choose to close unclosed curves(for cyclic automation) --\
