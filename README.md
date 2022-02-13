@@ -2,21 +2,12 @@
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne) 
 +  [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) 
 +  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
-+ INSTRUCTIONS to use [blender2chataigne.py](../master/blender_files/blender_scripts) script to export 2D/3D BEZIER\
-  and POLY selected curves usable next in Chataigne(file > import) as Mapping(s) in a new sequence:\
-  -- Launch blender in commandline/terminal, draw and choose a curve, launch the script in scripting panel\
-  -- then, in commandline/terminal:\
-  -- choose save path and filename of your *.lilnut file,\
-  -- choose an export mode:\
-  -- (in 3D mode, curves are converted in 3 Mappings (X,Y,Z) with fixed linear easing.)--\
-  -- (Due to the lack of a handle in 3D mode, sub-divide the bezier curves with\
-  -- a sufficient index and convert them to poly curves for a clean result.)--\
-  -- (in 2D mode, curves are converted in a Mapping2D (projection on XY) with editable easing.)--\
-  -- choose a specific length of automation/sequence or use standard one (30sec) --\
-  -- choose to close unclosed curves(for cyclic automation) --\
-  => You've got your *.lilnut file containing a sequence named like this one!!
-  (bezier curves with acute angles could be export with some "noise", so convert them in "Poly" before!!)\
- 
++  INSTRUCTIONS to use [blender2chataigne.py](../master/blender_files/blender_scripts) script to export 2D/3D BEZIER\
+   and POLY selected curves usable next in Chataigne(file > import) as Mapping(s) in a new sequence:\
+   [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
++  INSTRUCTIONS to use [Export2Lilnut_addon](../master/blender_files/blender_scripts) \
+   to add a "data object properties" panel to export selected curve to lilnut files: \
+   [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
 &nbsp;
