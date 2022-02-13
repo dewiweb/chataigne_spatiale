@@ -5,8 +5,8 @@
 +  INSTRUCTIONS to use [blender2chataigne blender python script](../master/blender_files/blender_scripts) to export 2D/3D BEZIER\
    and POLY selected curves usable next in [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)(file > import) as Mapping(s) in a new sequence:\
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
-+  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) \
-   (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg))
++  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
+   (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg)) \
    to add a "data object properties" panel to export selected curve to lilnut ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files: \
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
