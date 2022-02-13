@@ -2,11 +2,11 @@
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne) 
 +  [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) 
 +  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
-+  INSTRUCTIONS to use [blender2chataigne.py](../master/blender_files/blender_scripts) script to export 2D/3D BEZIER\
-   and POLY selected curves usable next in Chataigne(file > import) as Mapping(s) in a new sequence:\
++  INSTRUCTIONS to use [blender2chataigne blender python script](../master/blender_files/blender_scripts) to export 2D/3D BEZIER\
+   and POLY selected curves usable next in [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)(file > import) as Mapping(s) in a new sequence:\
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
-+  INSTRUCTIONS to use [Export2Lilnut_addon](../master/blender_files/blender_scripts) \
-   to add a "data object properties" panel to export selected curve to lilnut files: \
++  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) \
+   to add a "data object properties" panel to export selected curve to lilnut ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files: \
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
