@@ -1,6 +1,6 @@
  #  An exploration of tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne) 
-+  [AddRoutes](http://www.jpfep.net/pages/addroutes/)(OSC in/out for Blender) 
++  ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ (OSC in/out for Blender) 
 +  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
 +  INSTRUCTIONS to use [blender2chataigne blender python script](../master/blender_files/blender_scripts) to export 2D/3D BEZIER\
    and POLY selected curves usable next in [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)(file > import) as Mapping(s) in a new sequence:\
