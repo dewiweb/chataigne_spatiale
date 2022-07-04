@@ -25,7 +25,7 @@ by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) insi
 </p>
 
 ## Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC) :
-+ ### --> https://github.com/dewiweb/spacemouse-osc
++ ### https://github.com/dewiweb/spacemouse-osc
 
 &nbsp;
 
