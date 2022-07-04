@@ -1,11 +1,8 @@
- #  An exploration of tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
+#  An exploration of tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne) 
-+  ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ [blender.NodeOSC](https://github.com/maybites/blender.NodeOSC)(OSC in/out for Blender) 
-+  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
-+  INSTRUCTIONS to use [blender2chataigne blender python script](../master/blender_files/blender_scripts) to export 2D/3D BEZIER\
-   and POLY selected curves usable next in [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)(file > import) as Mapping(s) in a new sequence:\
-   [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
-+  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
+### ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ [blender.NodeOSC](https://github.com/maybites/blender.NodeOSC)(OSC in/out for Blender) 
+###  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
+###  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
    (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg)) \
    "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files: \
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
@@ -16,7 +13,7 @@
 </p>
 
 ## [Open-Stage-Control](https://openstagecontrol.ammd.net/)
-+ to design touch-friendly osc control UI
+### to design touch-friendly osc control UI
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="45%">
 &nbsp;
@@ -24,7 +21,7 @@
 </p>
 
 ## For [HOLOPHONIX](http://holophonix.xyz/) audio processor and its [designer](http://holophonix.xyz/designer/)
-+ by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) inside!
+### by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) inside!
 <p align="center">
 <img src="https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif" width="45%">
 </p>
