@@ -26,7 +26,7 @@
 </p>
 
 ## Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC) 
---> https://github.com/dewiweb/MCxOSCnext
++ ### --> https://github.com/dewiweb/spacemouse-osc
 
 &nbsp;
 
