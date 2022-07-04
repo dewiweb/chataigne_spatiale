@@ -7,7 +7,7 @@
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 +  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
    (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg)) \
-   to add a "data object properties" panel to export selected curve to lilnut ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files: \
+   "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files: \
    [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
