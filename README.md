@@ -14,12 +14,12 @@
 
 ## The well known [Open-Stage-Control](https://openstagecontrol.ammd.net/) to design touch-friendly OSC control UI :
 <p align="center">
-<img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="40%">
-<img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="40%">
+<img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="35%">
+<img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="35%">
 </p>
 
-## For [HOLOPHONIX](http://holophonix.xyz/), HOLOPHONIX/NATIVE and HOLOPHONIX/DESIGNER :
-+ ### by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) inside!
+## For [HOLOPHONIX](http://holophonix.xyz/), HOLOPHONIX/Native and HOLOPHONIX/Designer :
+by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) inside!
 <p align="center">
 <img src="https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif" width="45%">
 </p>
