@@ -3,8 +3,8 @@
 ## [Blender](https://www.blender.org/) and [Chataigne](http://benjamin.kuperberg.fr/chataigne) :
 + ### ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ [blender.NodeOSC](https://github.com/maybites/blender.NodeOSC)(OSC in/out for Blender) 
 + ###  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)
-+ ###  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
-   "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) \
++ ###  INSTRUCTIONS to use my [Export2Lilnut](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) Blender Addon:
+   A "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) \
    (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg)) --> [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117938092-f36b4000-b306-11eb-8299-176251e8b213.png" width="45%">
