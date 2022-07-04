@@ -29,5 +29,5 @@
 <img src="https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif" width="45%">
 </p>
 
-# Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC) --> https://github.com/dewiweb/MCxOSCnext
+## Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC) --> https://github.com/dewiweb/MCxOSCnext
 
