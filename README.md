@@ -1,4 +1,4 @@
-#  My list of OSC tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
+#  My list of OSC tools to control positions/trajectories of audio-objects in spatialized live conditions.
 ***
 ## [Blender](https://www.blender.org/) and [Chataigne](http://benjamin.kuperberg.fr/chataigne) :
 + ### ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ [blender.NodeOSC](https://github.com/maybites/blender.NodeOSC)(OSC in/out for Blender) 
