@@ -12,8 +12,7 @@
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="45%">
 </p>
 
-## [Open-Stage-Control](https://openstagecontrol.ammd.net/) :
-+ ### to design touch-friendly osc control UI
+## The well known [Open-Stage-Control](https://openstagecontrol.ammd.net/) to design touch-friendly osc control UI :
 <p align="center">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="45%">
 &nbsp;
