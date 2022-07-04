@@ -1,9 +1,9 @@
 #  An exploration of tools to control 2D/3D positions/trajectories of objects (object-oriented audio) in live conditions.
 ## [Blender](https://www.blender.org/) <--> [Chataigne](http://benjamin.kuperberg.fr/chataigne) 
 + ### ~[AddRoutes](http://www.jpfep.net/pages/addroutes/)~ [blender.NodeOSC](https://github.com/maybites/blender.NodeOSC)(OSC in/out for Blender) 
-+ ###  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender)\
++ ###  [Flexi Bezier Tool](https://github.com/shspage/blenderbezierutils)(to draw bezier curves with mouse in Blender) \
 + ###  INSTRUCTIONS to use [Export2Lilnut Blender addon](../master/blender_files/blender_scripts/Export2Lilnut_addon.py) 
-   "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) files \
+   "data object properties" panel to export selected curve to *.lilnut files ([Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)) \
    (inspired by [aryelgois's one](https://github.com/aryelgois/blender-curve-to-svg)) \
    --> [HERE!](https://github.com/dewiweb/chataigne_spatiale/wiki/Blender-Tutorials)
 <p align="center">
