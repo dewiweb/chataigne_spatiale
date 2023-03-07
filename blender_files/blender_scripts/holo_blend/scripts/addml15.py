@@ -2,6 +2,7 @@ import bpy
 import os
 import json
 import sys
+import math
 
 
  
@@ -16,9 +17,7 @@ coord_convert_file = bpy.path.abspath(coord_convert_file_rel)
 sys.modules['coord_conv'] = bpy.data.texts['holo_out.py'].as_module()
 from coord_conv import sph2cart
 inner_path = 'Object'
-sph_coord = [0,0,0]
-cart_coord = [0,0,0]
-spk_type = ""
+
 
 """
 Read *.hol file content
@@ -32,6 +31,13 @@ with open(preset_file_path) as f:
 Search in content for matching parameters
 """
 for i in range(1,128):
+    sph_coord = [0,0,0]
+    cart_coord = [0,0,0]
+    spk_type = ""
+    spk_color = [0,0,0]
+    spk_pan = 0
+    spk_tilt = 0
+    spk_roll90deg = False
     speaker = '/speaker/'
     params = ['/color','/azim','/elev','/dist','/view3D/file3D','/view3D/roll90deg','/view3D/pan','/view3D/tilt']
     for param in params:
@@ -68,14 +74,51 @@ for i in range(1,128):
                 for obj in bpy.context.selected_objects:
                     obj.name = 'spk_'+str(i)+'_'+spk_name
                     obj.data.name = 'spk_'+str(i)+'_'+spk_name
-                    obj.location.x = cart_coord[0]
-                    obj.location.y = cart_coord[1]
+                    obj.location.x = cart_coord[1]
+                    obj.location.y = cart_coord[0]
                     obj.location.z = cart_coord[2]
+                    material = bpy.data.materials.new(name = 'spk_'+str(i)+'_'+spk_name+'_mat')
+                    obj.data.materials.append(material)
+                    bpy.data.materials['spk_'+str(i)+'_'+spk_name+'_mat'].diffuse_color = color
+                    
         elif param == params[0]:
             if (tuple) in keys:
                 p_tuple = preset_dict[tuple]
                 print(tuple,p_tuple)
-                print("speaker",i,sph_coord)
+                color = p_tuple
+                
+        elif param == params[7]:
+            if (tuple) in keys:
+                p_tuple = preset_dict[tuple]
+                print(tuple,p_tuple)
+                spk_tilt = p_tuple[0]
+                for obj in bpy.context.selected_objects:
+                    obj.rotation_mode = 'XYZ'
+                    if spk_roll90deg == True:
+                        obj.rotation_euler[1] = math.radians(-float(spk_tilt))
+                    else:
+                        obj.rotation_euler[2] = math.radians(float(spk_tilt))
+        elif param == params[6]:
+            if (tuple) in keys:
+                p_tuple = preset_dict[tuple]
+                print(tuple,p_tuple)
+                spk_pan = p_tuple[0]
+                for obj in bpy.context.selected_objects:
+                    obj.rotation_mode = 'XYZ'
+                    if spk_roll90deg == True:
+                        obj.rotation_euler[0] = math.radians(float(spk_pan))
+                    else:
+                        obj.rotation_euler[1] = math.radians(-float(spk_pan))
+        elif param == params[5]:
+            if (tuple) in keys:
+                p_tuple = preset_dict[tuple]
+                print(tuple,p_tuple)
+                spk_roll90deg = p_tuple[0]
+                if spk_roll90deg == True:
+                    for obj in bpy.context.selected_objects:
+                        obj.rotation_mode = 'XYZ'
+                        obj.rotation_euler[2] = math.radians(90)
+                    
         else:
             if (tuple) in keys:
                 p_tuple = preset_dict[tuple]
