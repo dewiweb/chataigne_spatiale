@@ -5,6 +5,19 @@ import sys
 import math
 
 
+
+for obj in bpy.context.scene.objects:
+    if "spk" in obj.name:
+        bpy.data.objects[obj.name].select_set(True)
+        print(obj.name, ' deleted')
+        bpy.ops.object.delete()
+        for block in bpy.data.meshes:
+            if block.users == 0:
+                bpy.data.meshes.remove(block)
+        for block in bpy.data.materials:
+            if block.users == 0:
+                bpy.data.materials.remove(block)
+
  
 file_path_rel = '//Assets/amadeus.blend'
 preset_file_path_rel = '//hol/DEWI23.hol'
@@ -40,6 +53,7 @@ for i in range(1,128):
     spk_roll90deg = False
     speaker = '/speaker/'
     params = ['/color','/azim','/elev','/dist','/view3D/file3D','/view3D/roll90deg','/view3D/pan','/view3D/tilt']
+    rotation_mode = 'XYZ'
     for param in params:
         tuple = (speaker,str(i),param)
         tuple = ''.join(tuple)
@@ -88,27 +102,45 @@ for i in range(1,128):
                 color = p_tuple
                 
         elif param == params[7]:
+            obj.lock_rotation[1] = True
             if (tuple) in keys:
                 p_tuple = preset_dict[tuple]
                 print(tuple,p_tuple)
                 spk_tilt = p_tuple[0]
                 for obj in bpy.context.selected_objects:
-                    obj.rotation_mode = 'XYZ'
+                    obj.rotation_mode = rotation_mode
+                    """
                     if spk_roll90deg == True:
                         obj.rotation_euler[1] = math.radians(-float(spk_tilt))
                     else:
                         obj.rotation_euler[2] = math.radians(float(spk_tilt))
+                    """
+                    obj.rotation_euler[0] = math.radians(float(spk_tilt))
+                    if float(spk_pan) > 90:
+                        if spk_roll90deg == True:
+                            print('condition true')
+                            obj.rotation_euler[0] =  -1*(obj.rotation_euler[0])
+                    obj.lock_rotation[0] = True
         elif param == params[6]:
+            obj.lock_rotation[2] = True
             if (tuple) in keys:
                 p_tuple = preset_dict[tuple]
                 print(tuple,p_tuple)
                 spk_pan = p_tuple[0]
                 for obj in bpy.context.selected_objects:
-                    obj.rotation_mode = 'XYZ'
+                    obj.rotation_mode = rotation_mode
                     if spk_roll90deg == True:
-                        obj.rotation_euler[0] = math.radians(float(spk_pan))
+                        obj.rotation_euler[1] = math.radians(float(spk_pan))
+                        if float(spk_pan) > 90:
+                            print('modified to',obj.rotation_euler[0])
+                            obj.rotation_euler[2] = math.radians(-90)
+                            
                     else:
                         obj.rotation_euler[1] = math.radians(-float(spk_pan))
+#                    obj.rotation_euler[1] = math.radians(float(spk_pan))
+                    obj.lock_rotation[1] = True
+                    
+                        
         elif param == params[5]:
             if (tuple) in keys:
                 p_tuple = preset_dict[tuple]
@@ -116,8 +148,9 @@ for i in range(1,128):
                 spk_roll90deg = p_tuple[0]
                 if spk_roll90deg == True:
                     for obj in bpy.context.selected_objects:
-                        obj.rotation_mode = 'XYZ'
+                        rotation_mode = 'YZX'
                         obj.rotation_euler[2] = math.radians(90)
+                        obj.lock_rotation[2] = True
                     
         else:
             if (tuple) in keys:
