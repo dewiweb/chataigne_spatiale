@@ -20,12 +20,12 @@ for obj in bpy.context.scene.objects:
 
  
 assets_file_path_rel = '//Assets/amadeus.blend'
-preset_file_path_rel = '//hol/DEWI23.hol'
+hol_file_path_rel = '//hol/DEWI23.hol'
 coord_conv_file_path_rel = '//scripts/coord_conversion.py'
 
 print(bpy.path.abspath(assets_file_path_rel))
 assets_file_path = bpy.path.abspath(assets_file_path_rel)
-preset_file_path = bpy.path.abspath(preset_file_path_rel)
+hol_file_path = bpy.path.abspath(hol_file_path_rel)
 coord_convert_file = bpy.path.abspath(coord_conv_file_path_rel)
 sys.modules['coord_conv'] = bpy.data.texts['coord_conversion.py'].as_module()
 from coord_conv import sph2cart
@@ -35,7 +35,7 @@ inner_path = 'Object'
 """
 Read *.hol file content
 """
-with open(preset_file_path) as f:
+with open(hol_file_path) as f:
     preset_content = json.load(f)
     preset_dict = preset_content['hol']
     keys = list(preset_dict.keys())

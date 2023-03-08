@@ -7,6 +7,9 @@ from bpy_extras.io_utils import ExportHelper
 from bpy.props import StringProperty
 from bpy.types import Operator
 
+hol_file_ext = '.hol'
+hol_file_path = ''
+
 class HOLO_OT_import_spk(Operator):
     bl_idname = "scene.add_spk_from_hol"
     bl_label = "Apply All"
@@ -37,10 +40,14 @@ class HOLO_OT_import_spk(Operator):
         
         assets_file_path_rel = '//Assets/amadeus.blend'
         assets_file_path = bpy.path.abspath(assets_file_path_rel)
+        
         coord_conv_file_path_rel = '//scripts/coord_conversion.py'
         coord_convert_file = bpy.path.abspath(coord_conv_file_path_rel)
         sys.modules['coord_conv'] = bpy.data.texts['coord_conversion.py'].as_module()
         from coord_conv import sph2cart
+        
+        
+
         inner_path = 'Object
 
 

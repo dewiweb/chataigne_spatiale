@@ -17,3 +17,5 @@ class HOLO_PT_Panel(Panel):
     
     #    col = row.column()
     #    col.operator("object.cancel_all_mods", text="Cancel All")
+        col = row.column(align=True)
+        col.prop("scene.choose_hol_filepath", "path", text="")
