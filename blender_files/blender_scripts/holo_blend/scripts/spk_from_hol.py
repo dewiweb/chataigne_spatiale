@@ -19,15 +19,15 @@ for obj in bpy.context.scene.objects:
                 bpy.data.materials.remove(block)
 
  
-file_path_rel = '//Assets/amadeus.blend'
+assets_file_path_rel = '//Assets/amadeus.blend'
 preset_file_path_rel = '//hol/DEWI23.hol'
-coord_convert_file_rel = '//scripts/holo_out.py'
+coord_conv_file_path_rel = '//scripts/coord_conversion.py'
 
-print(bpy.path.abspath(file_path_rel))
-file_path = bpy.path.abspath(file_path_rel)
+print(bpy.path.abspath(assets_file_path_rel))
+assets_file_path = bpy.path.abspath(assets_file_path_rel)
 preset_file_path = bpy.path.abspath(preset_file_path_rel)
-coord_convert_file = bpy.path.abspath(coord_convert_file_rel)
-sys.modules['coord_conv'] = bpy.data.texts['holo_out.py'].as_module()
+coord_convert_file = bpy.path.abspath(coord_conv_file_path_rel)
+sys.modules['coord_conv'] = bpy.data.texts['coord_conversion.py'].as_module()
 from coord_conv import sph2cart
 inner_path = 'Object'
 
@@ -82,7 +82,7 @@ for i in range(1,128):
                 spk_name = str(p_tuple[0])[19:end_loc]
                 print(tuple,spk_name)
                 bpy.ops.wm.append(
-                    directory=os.path.join(file_path, inner_path),
+                    directory=os.path.join(assets_file_path, inner_path),
                     filename=spk_name
                     )
                 for obj in bpy.context.selected_objects:

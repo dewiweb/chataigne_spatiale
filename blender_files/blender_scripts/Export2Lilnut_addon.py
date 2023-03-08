@@ -874,7 +874,7 @@ def unregister():
     bpy.utils.unregister_class(DATA_OT_CurveExportLilnut)
 
     del bpy.types.Scene.export_lilnut_output
-    del bpy.types.Scene.export_slilnut_2d
+    del bpy.types.Scene.export_lilnut_2d
 #    del bpy.types.Scene.export_pre_2poly
     del bpy.types.Scene.export_lilnut_duration
 
