@@ -2,6 +2,13 @@ import bpy
 
 from bpy.types import Panel
 
+class Property_group(bpy.types.PropertyGroup):
+    file_path: bpy.props.StringProperty(name="File path",
+                                        description="Some elaborate description",
+                                        default="",
+                                        maxlen=1024,
+                                        subtype="FILE_PATH")
+
 class HOLO_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -17,5 +24,8 @@ class HOLO_PT_Panel(Panel):
     
     #    col = row.column()
     #    col.operator("object.cancel_all_mods", text="Cancel All")
+        row = layout.row()
         col = row.column(align=True)
-        col.prop("scene.choose_hol_filepath", "path", text="")
+        col.operator("scene.choose_hol_filepath", text="Choose hol file")
+        col = row.column()
+        col.prop(Property_group,'file_path', text="")

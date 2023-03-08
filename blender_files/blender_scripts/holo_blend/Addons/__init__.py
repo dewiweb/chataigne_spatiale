@@ -24,10 +24,10 @@ bl_info = {
 
 import bpy
 
-from .holo_op import HOLO_OT_import_spk
-from .holo_pnl import HOLO_PT_Panel
+from .holo_op import (HOLO_OT_import_spk,HOLO_OT_hol_filechooser)
+from .holo_pnl import (HOLO_PT_Panel,Property_group)
 
-classes = (HOLO_PT_Panel,HOLO_OT_import_spk)
+classes = (HOLO_PT_Panel,HOLO_OT_import_spk,HOLO_OT_hol_filechooser,Property_group)
 
 def register():
     for c in classes:
