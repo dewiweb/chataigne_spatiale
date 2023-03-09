@@ -24,17 +24,20 @@ bl_info = {
 
 import bpy
 
-from .holo_op import HOLO_OT_import_spk,HOLO_OT_hol_filechooser,TEST_OT_import_tst
+from .holo_op import HOLO_OT_import_spk,HOLO_OT_import_hol
 from .holo_pnl import HOLO_PT_Panel
 from .holo_props import PG_myProperties
 
-classes = (PG_myProperties, HOLO_PT_Panel,HOLO_OT_import_spk, HOLO_OT_hol_filechooser,TEST_OT_import_tst)
+
+classes = (PG_myProperties, HOLO_PT_Panel,HOLO_OT_import_spk,HOLO_OT_import_hol)
 
 def register():
     
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.Scene.my_props = bpy.props.PointerProperty(type = PG_myProperties)
+    bpy.types.Scene.hol_filepath = bpy.props.StringProperty(name="file_path")
+
 
         
 def unregister():
@@ -42,5 +45,6 @@ def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
     del bpy.types.Scene.my_props
+    del bpy.types.Scene.hol_filepath
 
         

@@ -54,29 +54,10 @@ class HOLO_OT_import_spk(Operator):
 
 
         return {'FINISHED'}
-class HOLO_OT_hol_filechooser(Operator):
-    bl_idname = "scene.choose_hol_filepath"
-    bl_label = "Choose"
-    bl_description = "choose a hol file for speakers import"
-    
-    @classmethod
-    def poll(cls, context):
-        obj = context.object
 
-        if obj is not None:
-            if obj.mode == "OBJECT":
-                return True
-        return False
-    
-    def execute(self, context):
-        
-        
-
-        return {'FINISHED'}
-    
-class TEST_OT_import_tst(Operator, ImportHelper):
-    bl_idname = 'test.import_tst'
-    bl_label = 'test import test'
+class HOLO_OT_import_hol(Operator, ImportHelper):
+    bl_idname = 'holo.import_hol'
+    bl_label = 'Import *.hol file'
     bl_options = {'PRESET', 'UNDO'}
  
     filename_ext = '.hol'

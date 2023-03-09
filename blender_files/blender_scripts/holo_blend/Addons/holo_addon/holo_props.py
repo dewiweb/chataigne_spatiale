@@ -34,7 +34,7 @@ class PG_myProperties(PropertyGroup):
         max=30.0
     )
 
-    my_string = StringProperty(
+    my_string: StringProperty(
         name="User Input",
         description=":",
         default="",

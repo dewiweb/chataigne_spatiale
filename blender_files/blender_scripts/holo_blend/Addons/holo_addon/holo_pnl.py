@@ -21,4 +21,9 @@ class HOLO_PT_Panel(Panel):
     #    col.operator("object.cancel_all_mods", text="Cancel All")
         row = layout.row()
         col = row.column(align=True)
-        col.operator("test.import_tst", text="Choose *.hol file")
+        col.operator("holo.import_hol", text="Choose *.hol file")
+
+        if bpy.types.Scene.hol_filepath is not None:
+            row = layout.row()
+            col = row.column()
+            col.prop(context.scene,"hol_filepath")
