@@ -3,7 +3,7 @@ import os
 import json
 import sys
 import math
-from bpy_extras.io_utils import ExportHelper
+from bpy_extras.io_utils import ImportHelper
 from bpy.props import StringProperty
 from bpy.types import Operator
 
@@ -69,6 +69,24 @@ class HOLO_OT_hol_filechooser(Operator):
         return False
     
     def execute(self, context):
+        
+        
 
-
+        return {'FINISHED'}
+    
+class TEST_OT_import_tst(Operator, ImportHelper):
+    bl_idname = 'test.import_tst'
+    bl_label = 'test import test'
+    bl_options = {'PRESET', 'UNDO'}
+ 
+    filename_ext = '.hol'
+    
+    filter_glob: StringProperty(
+        default='*.hol',
+        options={'HIDDEN'}
+    )
+ 
+    def execute(self, context):
+        print('imported file: ', self.filepath)
+#        return str(self.filepath)
         return {'FINISHED'}
