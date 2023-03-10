@@ -23,7 +23,6 @@ class HOLO_PT_Panel(Panel):
         col = row.column(align=True)
         col.operator("holo.import_hol", text="Choose *.hol file")
 
-        if bpy.types.Scene.hol_filepath is not None:
-            row = layout.row()
-            col = row.column()
-            col.prop(context.scene,"hol_filepath")
+        row = layout.row()
+        col = row.column()
+        col.prop(context.scene,'["hol_filepath"]')
