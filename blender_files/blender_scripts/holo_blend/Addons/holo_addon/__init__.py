@@ -36,7 +36,7 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.Scene.my_props = bpy.props.PointerProperty(type = PG_myProperties)
-    bpy.types.Scene.hol_filepath = bpy.props.StringProperty(name="file_path")
+    bpy.types.Scene.hol_filepath = bpy.props.StringProperty(name="",default="coulos_coulos")
 
 
         

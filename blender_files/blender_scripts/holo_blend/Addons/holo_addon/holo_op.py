@@ -66,9 +66,10 @@ class HOLO_OT_import_hol(Operator, ImportHelper):
         default='*.hol',
         options={'HIDDEN'}
     )
- 
     def execute(self, context):
         print('imported file: ', self.filepath)
         context.scene['hol_filepath'] = self.filepath
+        context.area.tag_redraw()
 #        return str(self.filepath)
         return {'FINISHED'}
+        
