@@ -18,7 +18,7 @@
   <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="45%">
   </p>
 
-## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor:
+## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor
 
 - ### [Holophonix-chataigne-module](https://github.com/dewiweb/Holophonix-chataigne-module)
 
@@ -28,7 +28,7 @@
 
 ---
 
-## Use [Open-Stage-Control](https://openstagecontrol.ammd.net/) to design touch-friendly OSC control UI
+## [Open-Stage-Control](https://openstagecontrol.ammd.net/) to design touch-friendly OSC control UI
 
 ---
 
@@ -39,7 +39,7 @@
 
 ---
 
-## Use 6DOF 3DCONNEXION SpaceMouse Compact as an OSC controller:
+## [3DCONNEXION SpaceMouse Compact](https://3dconnexion.com/fr/product/spacemouse-compact/) as an OSC controller
 
 ---
 
