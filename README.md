@@ -18,7 +18,7 @@
   <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="45%">
   </p>
 
-- ### [Another](../master/blender_files/blender_scripts/holo_blend/holophonix_utils_1.0.5.zip) blender's addon for Holophonix
+- ### [Another](../master/blender_files/blender_scripts/holo_blend/holophonix_utils_1.0.7.zip) blender's addon for Holophonix
 
 ## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor
 
