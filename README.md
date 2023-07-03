@@ -18,9 +18,9 @@
   <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="45%">
   </p>
 
-- ## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor:
+## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor:
 
-[Holophonix-chataigne-module](https://github.com/dewiweb/Holophonix-chataigne-module)
+- ### [Holophonix-chataigne-module](https://github.com/dewiweb/Holophonix-chataigne-module)
 
 ## The well known [Open-Stage-Control](https://openstagecontrol.ammd.net/) to design touch-friendly OSC control UI
 
@@ -29,7 +29,7 @@
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="35%">
 </p>
 
-## For [HOLOPHONIX](http://holophonix.xyz/), HOLOPHONIX/Native and HOLOPHONIX/Designer
+## For [HOLOPHONIX](http://holophonix.xyz/) and HOLOPHONIX Native
 
 by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) inside!
 
@@ -37,8 +37,8 @@ by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) insi
 <img src="https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif" width="45%">
 </p>
 
-## Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC)
+## Use 6DOF 3DCONNEXION SpaceMouse Compact as audio-object controller (OSC):
 
-- ### <https://github.com/dewiweb/spacemouse-osc>
+- ### [spacemouse-osc](https://github.com/dewiweb/spacemouse-osc)
 
 &nbsp;
