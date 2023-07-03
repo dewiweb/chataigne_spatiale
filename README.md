@@ -1,4 +1,4 @@
-# My list of OSC tools to control positions/trajectories of audio-objects in spatialized live conditions
+# My list of OSC tools to control positions/trajectories of spatial audio-objects in live conditions
 
 ---
 
@@ -44,6 +44,7 @@ by [AMADEUSLAB](http://amadeusaudio.fr) with [IRCAM](https://www.ircam.fr/) insi
 <p align="center">
 <img src="https://user-images.githubusercontent.com/3625655/117127100-f52f8380-ad9b-11eb-8428-a68ca44ecd5d.gif" width="45%">
 </p>
+
 ---
 
 ## Use 6DOF 3DCONNEXION SpaceMouse Compact as an OSC controller:
