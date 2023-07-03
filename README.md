@@ -18,8 +18,6 @@
   <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117030296-c06dee80-acff-11eb-867e-792de90fc4b5.gif" width="45%">
   </p>
 
----
-
 ## My [Chataigne](https://benjamin.kuperberg.fr/chataigne/fr)'s module for [HOLOPHONIX](http://holophonix.xyz/) spatial audio processor:
 
 - ### [Holophonix-chataigne-module](https://github.com/dewiweb/Holophonix-chataigne-module)
@@ -34,6 +32,7 @@
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117117331-b8f62600-ad8f-11eb-8ab2-588eb42b116a.png" width="35%">
 <img style=" float:left; width:50%" src="https://user-images.githubusercontent.com/3625655/117154476-2ae46480-adbc-11eb-9979-6f24310feb0b.png" width="35%">
 </p>
+
 ---
 
 ## For [HOLOPHONIX](http://holophonix.xyz/) and HOLOPHONIX Native
